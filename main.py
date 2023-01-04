@@ -1,26 +1,37 @@
 import streamlit as st
-from streamlit import caching
 import streamlit.components.v1 as components
 
-# streamlit
-st.set_page_config(page_title='App', page_icon=':moneybag:', layout='wide', initial_sidebar_state='expanded')
-st.sidebar.title(':shark:' + ' Dashboard')
-@st.cache(suppress_st_warning=True)
-def footer():
-    with st.sidebar.expander("Credits"):
-        st.success('Created by VH')
-        components.html(
-        """
-        <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="hirawat" data-color="#FFDD00" data-emoji="☕"  data-font="Poppins" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
-        """,
-        height=100
-        )
-
 # credentials
+page_title = st.secrets['initialize']['page_title']
+website = st.secrets['credits']['website']
+name = st.secrets['credits']['name']
+buymeacoffee = st.secrets['credits']['buymeacoffee']
 api_key = st.secrets['api_key']
 api_secret = st.secrets['api_secret']
 
-# Widget
+# streamlit
+st.set_page_config(
+    page_title='{}'.format(page_title),
+    page_icon=':moneybag:',
+    layout='wide',
+    initial_sidebar_state='expanded'
+)
+st.title(':shark:' + ' Dashboard')
+st.sidebar.title(':smile' + ' Sidebar')
+
+# footer & credits section
+@st.cache(suppress_st_warning=True)
+def footer():
+    st.markdown('<div style="text-align: center">Made with ❤️ by <a href="{}">{}</a></div>'.format(website, name), unsafe_allow_html=True)
+    with st.sidebar.expander("Credits", expanded=True):
+        components.html(
+            '{}'.format(buymeacoffee),
+            height=80
+        )
+
+
+
+# widget
 
 def main():
     st.write("Code Begins")
