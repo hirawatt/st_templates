@@ -11,16 +11,19 @@ api_secret = st.secrets['api_secret']
 
 # streamlit
 st.set_page_config(
-    page_title='{}'.format(page_title),
-    page_icon=':moneybag:',
+    '{}'.format(page_title),
+    ':moneybag:',
     layout='wide',
-    initial_sidebar_state='expanded'
+    initial_sidebar_state='expanded',
+    menu_items={
+        "Get Help": "https://hirawat.in",
+        "About": "Boilerplate streamlit app",
+    },
 )
-st.title(':shark:' + ' Dashboard')
+st.title(':star2:' + ' Dashboard')
 st.sidebar.title(':smile' + ' Sidebar')
 
 # footer & credits section
-@st.cache(suppress_st_warning=True)
 def footer():
     st.markdown('<div style="text-align: center">Made with ❤️ by <a href="{}">{}</a></div>'.format(website, name), unsafe_allow_html=True)
     with st.sidebar.expander("Credits", expanded=True):
@@ -33,8 +36,8 @@ def footer():
 
 # widget
 
-def main():
-    st.write("Code Begins")
+def main() -> None:
+    # Start Writing Code Here
     footer()
 
 if __name__ == '__main__':

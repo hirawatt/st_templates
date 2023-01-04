@@ -1,6 +1,6 @@
 # Streamlit Starter Templates
 
-> Note : Add `./streamlit/*` in `.gitignore' file
+> Note : Add `/.streamlit/secrets.toml` in `.gitignore' file
 
 ## Files
 
