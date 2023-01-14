@@ -3,6 +3,7 @@ import streamlit.components.v1 as components
 
 # credentials
 page_title = st.secrets['initialize']['page_title']
+sidebar_title = st.secrets['initialize']['sidebar_title']
 website = st.secrets['credits']['website']
 name = st.secrets['credits']['name']
 buymeacoffee = st.secrets['credits']['buymeacoffee']
@@ -21,7 +22,7 @@ st.set_page_config(
     },
 )
 st.title(':star: ' + page_title )
-st.sidebar.title(':cyclone:' + ' Sidebar')
+st.sidebar.title(':cyclone: ' +  sidebar_title)
 
 # footer & credits section
 def footer():
@@ -31,7 +32,6 @@ def footer():
             '{}'.format(buymeacoffee),
             height=80
         )
-
 
 
 # widget
