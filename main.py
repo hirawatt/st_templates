@@ -20,8 +20,8 @@ st.set_page_config(
         "About": "Boilerplate streamlit app",
     },
 )
-st.title(':star2:' + ' Dashboard')
-st.sidebar.title(':smile' + ' Sidebar')
+st.title(':star: ' + page_title )
+st.sidebar.title(':cyclone:' + ' Sidebar')
 
 # footer & credits section
 def footer():
